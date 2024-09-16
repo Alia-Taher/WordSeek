@@ -45,3 +45,16 @@ initMainPage();
 header.appendChild(arrow)
 }
 }
+
+export const displayError = (error)=>{
+    const userInterface = document.getElementById(USER_INTERFACE_ID);
+    const resultDisplay = document.getElementById("results-display");
+    resultDisplay.style.opacity = "0.2";
+    const displayError = document.createElement("p");
+    displayError.id = "display-error";
+    displayError.innerHTML = `Sorry  something went wrong... :(
+      <br>
+      <br>
+       <span>Try again later</span>`;
+    userInterface.appendChild(displayError);
+}

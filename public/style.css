@@ -130,14 +130,12 @@ header {
   background-color: rgb(0, 0, 0);
   border: solid black 4px;
   color: rgb(255, 255, 255);
-  font-size: 5rem;
-  padding: 10rem 20rem;
+  font-size: 1em;
+  padding: 1% 2%;
   justify-self: center;
   align-self: center;
-  width: 35%;
-  height: 30%;
-  display: block;
-  position: fixed;
+  width: 45%;
+  height: fit-content;
   opacity: 1;
   border-radius: 88px;
 }
@@ -282,6 +280,10 @@ footer {
     height: fit-content;
     overflow-y: auto;
     margin-bottom: 2%;
+  }
+  #display-error {
+    
+    border-radius: 0;
   }
 
   #footer {

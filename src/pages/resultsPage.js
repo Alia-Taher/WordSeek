@@ -1,6 +1,7 @@
 import { USER_INTERFACE_ID, SEARCH_RESULTS } from "../constants.js";
 import { createResultsElement } from "../views/resultsView.js";
 import { backArrow } from "./helpers.js";
+import { displayError } from "./helpers.js";
 
 
 export const initResultsPage = async (word) => {
@@ -37,15 +38,6 @@ export const initResultsPage = async (word) => {
       return data;
     } catch (error) {
       console.log(`Error:${error.message}`);
-      const searchDisplay = document.getElementById("search-display");
-      searchDisplay.style.opacity = "0.2";
-      const displayError = document.createElement("p");
-      displayError.id = "display-error";
-      displayError.innerHTML = `Sorry  something went wrong... :(
-        <br>
-        <br>
-         <span>Try again later</span>`;
-      userInterface.appendChild(displayError);
     }
   }
 
@@ -82,6 +74,6 @@ export const initResultsPage = async (word) => {
     await renderResults(meaning);
   } catch (error) {
     console.log(error.message);
-    console.log(error.stack);
+    displayError(error);
   }
 };
