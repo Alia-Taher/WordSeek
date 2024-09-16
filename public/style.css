@@ -52,6 +52,19 @@ header {
   margin: 0;
   font-weight: 900;
 }
+#arrow-button{
+  display: block;
+  position: relative;
+  width: 20%;
+  height: 100%;
+  font-size: 2em;
+  background-color: rgba(12, 11, 11, 0.788);
+  color: beige;
+  margin-left: 50%;
+  margin-bottom: 1%;
+  bottom: 90%
+
+}
 
 #user-interface {
   grid-area: main;
@@ -155,7 +168,6 @@ h6 {
   grid-row: 1/2;
   margin: 0 auto;
   padding: 0;
-  width: 90;
   height: fit-content;
   border-radius: 88px;
 }
@@ -207,7 +219,14 @@ footer {
     display: none;
   }
   #title-right {
-    font-size: 1em;
+    font-size: 1.5em;
+  }
+  #arrow-button{
+    top: 3%;
+    height: fit-content%;
+    width: 20%;
+    right: 50%;
+    border-radius: 100%;
   }
   html,
   body {
@@ -251,16 +270,18 @@ footer {
     font-size: 1.2em;
   }
   #results-display {
-    width: 90vw;
+    width: 90%;
     height: fit-content;
-    font-size: 1em;
     word-break: keep-all;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
   #results-display > div {
     margin: 0 auto;
     height: fit-content;
     overflow-y: auto;
+    margin-bottom: 2%;
   }
 
   #footer {

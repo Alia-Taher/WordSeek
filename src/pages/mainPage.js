@@ -10,6 +10,14 @@ import { isOneWord } from "./helpers.js";
 import { reloadOnclick } from "./helpers.js";
 
 export const initMainPage = async () => {
+  
+// remove back arrow
+const arrow = document.getElementById('arrow-button');
+if(arrow){
+arrow.remove();
+}
+
+
   reloadOnclick();
   const userInterface = document.getElementById(USER_INTERFACE_ID);
 
