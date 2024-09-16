@@ -223,7 +223,7 @@ footer {
   }
   #arrow-button{
     top: 3%;
-    height: fit-content%;
+    height: fit-content;
     width: 20%;
     right: 50%;
     border-radius: 100%;
