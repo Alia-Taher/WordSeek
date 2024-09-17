@@ -3,14 +3,13 @@ import { createResultsElement } from "../views/resultsView.js";
 import { backArrow, displayError } from "./helpers.js";
 
 export const initResultsPage = async (word) => {
-
   // insert back arrow
   const arrow = document.getElementById("arrow-button");
   if (!arrow) {
     backArrow();
   }
 
-  //create results element 
+  //create results element
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = "";
   userInterface.appendChild(createResultsElement());
@@ -22,7 +21,6 @@ export const initResultsPage = async (word) => {
       "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
     },
   };
-
 
   // fetch meaning
   async function fetchMeaning(word, options) {
