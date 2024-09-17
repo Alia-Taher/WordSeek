@@ -6,26 +6,26 @@ import {
 } from "../constants.js";
 import { createSearchElement } from "../views/mainView.js";
 import { initResultsPage } from "./resultsPage.js";
-import { isOneWord } from "./helpers.js";
-import { reloadOnclick } from "./helpers.js";
+import { isOneWord, reloadOnclick, failedQuote } from "./helpers.js";
 
 export const initMainPage = async () => {
-  
-// remove back arrow
-const arrow = document.getElementById('arrow-button');
-if(arrow){
-arrow.remove();
-}
+  // remove back arrow from main page
+  const arrow = document.getElementById("arrow-button");
+  if (arrow) {
+    arrow.remove();
+  }
 
-
+  //header links reload page on click
   reloadOnclick();
-  const userInterface = document.getElementById(USER_INTERFACE_ID);
 
+  //create search element
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.appendChild(createSearchElement());
 
   const searchButton = document.getElementById(SEARCH_BUTTON_ID);
   const searchBar = document.getElementById(SEARCH_INPUT_ID);
 
+  // add event listeners to initiate results page
   searchButton.addEventListener("click", (event) => {
     const word = searchBar.value;
     if (isOneWord(word)) {
@@ -46,20 +46,19 @@ arrow.remove();
     }
   });
 
-  /*
-   *   Generate a quote
-   */
-
+  //  Generate a quote on load
   const url = "https://dummyjson.com/quotes/random";
 
   const fetchQuote = async () => {
     try {
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
       const result = await response.json();
-      console.log(result);
       return result;
     } catch (error) {
-      console.error(error);
+      console.log(`Error:${error.message}`);
     }
   };
 
@@ -78,12 +77,10 @@ arrow.remove();
   };
 
   try {
-     const quote = await fetchQuote(url);
+    const quote = await fetchQuote(url);
     await renderQuote(quote);
   } catch (error) {
-    const displayError= document.createElement('div');
-    displayError.id = 'quote-error'
-    displayError.textContent='Something went wrong :( ' 
-    userInterface.appendChild(displayError)
+    console.log(error);
+    failedQuote(error);
   }
 };

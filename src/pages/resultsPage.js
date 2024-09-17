@@ -1,17 +1,16 @@
 import { USER_INTERFACE_ID, SEARCH_RESULTS } from "../constants.js";
 import { createResultsElement } from "../views/resultsView.js";
-import { backArrow } from "./helpers.js";
-import { displayError } from "./helpers.js";
-
+import { backArrow, displayError } from "./helpers.js";
 
 export const initResultsPage = async (word) => {
 
-  const arrow = document.getElementById('arrow-button');
-  if(!arrow){
-  backArrow(); 
+  // insert back arrow
+  const arrow = document.getElementById("arrow-button");
+  if (!arrow) {
+    backArrow();
   }
-  
-  
+
+  //create results element 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = "";
   userInterface.appendChild(createResultsElement());
@@ -24,6 +23,8 @@ export const initResultsPage = async (word) => {
     },
   };
 
+
+  // fetch meaning
   async function fetchMeaning(word, options) {
     try {
       const response = await fetch(
@@ -70,7 +71,6 @@ export const initResultsPage = async (word) => {
 
   try {
     const meaning = await fetchMeaning(word, options);
-    console.log(meaning);
     await renderResults(meaning);
   } catch (error) {
     console.log(error.message);

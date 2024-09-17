@@ -52,7 +52,7 @@ header {
   margin: 0;
   font-weight: 900;
 }
-#arrow-button{
+#arrow-button {
   display: block;
   position: relative;
   width: 20%;
@@ -62,8 +62,7 @@ header {
   color: beige;
   margin-left: 50%;
   margin-bottom: 1%;
-  bottom: 90%
-
+  bottom: 90%;
 }
 
 #user-interface {
@@ -162,6 +161,14 @@ h6 {
   font-size: 1.9vw;
   margin: 3% auto 3% auto;
 }
+#quote-error {
+  color: white;
+  background-color: black;
+  width: 50%;
+  margin: 6% auto;
+  font-size: 1em;
+  padding: 0 3%;
+}
 #results-display {
   grid-row: 1/2;
   margin: 0 auto;
@@ -219,7 +226,7 @@ footer {
   #title-right {
     font-size: 1.5em;
   }
-  #arrow-button{
+  #arrow-button {
     top: 3%;
     height: fit-content;
     width: 20%;
@@ -282,7 +289,6 @@ footer {
     margin-bottom: 2%;
   }
   #display-error {
-    
     border-radius: 0;
   }
 

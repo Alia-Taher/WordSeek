@@ -1,10 +1,7 @@
 import { initMainPage } from "./pages/mainPage.js";
 
-
-
-const loadApp = ()=>{
-
-    initMainPage();
+const loadApp = () => {
+  initMainPage();
 };
 
- window.addEventListener('load', loadApp)
+window.addEventListener("load", loadApp);

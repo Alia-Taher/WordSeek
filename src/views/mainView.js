@@ -8,6 +8,6 @@ export const createSearchElement = () => {
     <input id = "${SEARCH_INPUT_ID}" type = 'text 'placeholder = "What word do you seek...?"></input>
     <button id= "${SEARCH_BUTTON_ID}"> Search </button>
     `;
-    
+
   return element;
 };

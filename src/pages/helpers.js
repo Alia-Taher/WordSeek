@@ -1,60 +1,69 @@
 import { initMainPage } from "./mainPage.js";
 import { USER_INTERFACE_ID } from "../constants.js";
 
-export const isOneWord = (word)=>{
-return /^\S+$/.test(word)
-}
-
-
-
-export const reloadOnclick = ()=>{
-
-const leftTitle  = document.getElementById('title-left');
-const rightTitle = document.getElementById('title-right');
-
-leftTitle.href = '/'
-rightTitle.href = '/'
-
-leftTitle.onclick = (event)=>{
-    event.preventDefault();
-    window.location.reload();
+export const isOneWord = (word) => {
+  return /^\S+$/.test(word);
 };
 
-rightTitle.onclick =(event )=>{
+export const reloadOnclick = () => {
+  const leftTitle = document.getElementById("title-left");
+  const rightTitle = document.getElementById("title-right");
+
+  leftTitle.href = "/";
+  rightTitle.href = "/";
+
+  leftTitle.onclick = (event) => {
     event.preventDefault();
     window.location.reload();
-}
-}
+  };
 
-export const backArrow = () =>{
-const header = document.querySelector('header');
+  rightTitle.onclick = (event) => {
+    event.preventDefault();
+    window.location.reload();
+  };
+};
 
-let arrow = document.getElementById('arrow-button');
-if(!arrow){
-arrow = document.createElement('button')
-arrow.id = 'arrow-button';
-arrow.innerHTML= '&#8656;';
+export const backArrow = () => {
+  const header = document.querySelector("header");
 
-arrow.onclick= (event)=>{
-const userInterface = document.getElementById(USER_INTERFACE_ID);
-if (userInterface){
-userInterface.innerHTML='';}
-initMainPage();
-}
+  let arrow = document.getElementById("arrow-button");
+  if (!arrow) {
+    arrow = document.createElement("button");
+    arrow.id = "arrow-button";
+    arrow.innerHTML = "&#8656;";
 
-header.appendChild(arrow)
-}
-}
+    arrow.onclick = (event) => {
+      const userInterface = document.getElementById(USER_INTERFACE_ID);
+      if (userInterface) {
+        userInterface.innerHTML = "";
+      }
+      initMainPage();
+    };
 
-export const displayError = (error)=>{
-    const userInterface = document.getElementById(USER_INTERFACE_ID);
-    const resultDisplay = document.getElementById("results-display");
-    resultDisplay.style.opacity = "0.2";
-    const displayError = document.createElement("p");
-    displayError.id = "display-error";
-    displayError.innerHTML = `Sorry  something went wrong... :(
+    header.appendChild(arrow);
+  }
+};
+
+export const displayError = (error) => {
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
+  const resultDisplay = document.getElementById("results-display");
+  resultDisplay.style.opacity = "0.2";
+  const displayError = document.createElement("p");
+  displayError.id = "display-error";
+  displayError.innerHTML = `Sorry  something went wrong... :(
       <br>
       <br>
        <span>Try again later</span>`;
-    userInterface.appendChild(displayError);
-}
+  userInterface.appendChild(displayError);
+};
+
+export const failedQuote = (error) => {
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
+  const displayError = document.createElement("div");
+  displayError.id = "quote-error";
+  displayError.innerHTML = `
+     <p>Something went wrong...</p>
+     <br>
+     <p>No quote for now :( <p>`;
+  userInterface.appendChild(displayError);
+};
