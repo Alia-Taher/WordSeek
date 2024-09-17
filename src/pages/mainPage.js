@@ -5,8 +5,7 @@ import {
   QUOTE_ID,
 } from "../constants.js";
 import { createSearchElement } from "../views/mainView.js";
-import { initResultsPage } from "./resultsPage.js";
-import { isOneWord, reloadOnclick, failedQuote } from "./helpers.js";
+import { reloadOnclick, failedQuote, handleSearch } from "./helpers.js";
 
 export const initMainPage = async () => {
   // remove back arrow from main page
@@ -26,23 +25,11 @@ export const initMainPage = async () => {
   const searchBar = document.getElementById(SEARCH_INPUT_ID);
 
   // add event listeners to initiate results page
-  searchButton.addEventListener("click", (event) => {
-    const word = searchBar.value;
-    if (isOneWord(word)) {
-      initResultsPage(word);
-    } else {
-      alert("Enter one word only.");
-    }
-  });
+  searchButton.addEventListener("click", () => handleSearch(searchBar.value));
 
   searchBar.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      const word = searchBar.value;
-      if (isOneWord(word) && event.key === "Enter") {
-        initResultsPage(word);
-      } else {
-        alert("Enter one word only");
-      }
+      handleSearch(searchBar.value);
     }
   });
 
@@ -76,6 +63,7 @@ export const initMainPage = async () => {
     userInterface.appendChild(displayQuote);
   };
 
+  // fetch and render quote
   try {
     const quote = await fetchQuote(url);
     await renderQuote(quote);
