@@ -5,3 +5,4 @@ export const QUOTE_ID = "quote";
 export const SEARCH_RESULTS = "results";
 export const SYNONYMS_SECTION = "synonyms-section";
 export const ANTONYMS_SECTION = "antonyms-section";
+export const DElAY_RESULTS_MS = 2000;
