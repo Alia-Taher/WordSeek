@@ -3,7 +3,6 @@
 
 **WORD SEEK** is an English-to-English dictionary web application designed to help users find definitions, synonyms, and other word-related information. The primary goal of this project is to demonstrate and practice working with external APIs and handling asynchronous operations in JavaScript.
 
-
 ## Folder Overview
 
 ``` bash
